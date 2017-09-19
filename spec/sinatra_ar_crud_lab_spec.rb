@@ -9,7 +9,7 @@ describe "Blog Post App" do
     @post2 = Post.create(:name => "second post", :content => "i'm a really good blogger")
   end
 
-  describe "Create Action" do 
+  describe "Create Action" do
 
     it "creates a new blog post" do
       visit '/posts/new'
@@ -38,7 +38,7 @@ describe "Blog Post App" do
   end
 
   describe "Read Action " do
-    describe 'index action' do 
+    describe 'index action' do
       it 'responds with a 200 status code' do
         get "/posts"
         expect(last_response.status).to eq(200)
@@ -51,7 +51,7 @@ describe "Blog Post App" do
       end
     end
 
-    describe 'show action' do 
+    describe 'show action' do
       it 'show page responds with a 200 status code' do
         get "/posts/#{@post1.id}"
         expect(last_response.status).to eq(200)
@@ -68,7 +68,7 @@ describe "Blog Post App" do
       end
     end
 
-   
+
   end
 
 
@@ -76,11 +76,12 @@ describe "Blog Post App" do
 
 
     it 'responds with a 200 status code' do
+      # binding.pry
       get "/posts/#{@post2.id}/edit"
       expect(last_response.status).to eq(200)
     end
 
-    it 'displays the existing object in the edit form' do 
+    it 'displays the existing object in the edit form' do
       visit "/posts/#{@post2.id}/edit"
       expect(page.body).to include("#{@post2.name}")
       expect(page.body).to include("#{@post2.content}")
@@ -141,9 +142,9 @@ describe "Blog Post App" do
 
   end
 
-  
 
 
 
-    
+
+
 end
